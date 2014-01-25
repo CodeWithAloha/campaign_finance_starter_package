@@ -3,44 +3,50 @@
     <title>Campaign Finance</title>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="campaign.js" type="text/javascript"> </script>
+    <script src="simple-bar-chart.js" type="text/javascript"> </script>
+    <script src="3885304/bar-chart.js" type="text/javascript"> </script>
   </head>
+<style>
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-      console.log('page read');
-      d3.selectAll("p").style('color', 'green');
-      d3.selectAll("p")
-        .data([4, 8, 15, 16, 23, 42])
-        .style("font-size", function(d) { return d + "px"; });
-      d3.select("body").selectAll("p")
-        .data([4, 8, 15, 16, 23, 42])
-        .enter().append("p")
-        .text(function(d) { return "I’m number " + d + "!"; });
-      //http://soda.demo.socrata.com/resource/earthquakes.json?$limit=5&$order=datetime DESC
-      //var url = 'http://soda.demo.socrata.com/resource/earthquakes.json?$limit=5&$order=datetime DESC'
-      //var url = 'https://data.hawaii.gov/Community/Campaign-Contributions-Received-By-Hawaii-State-an/jexd-xbcg.json?$limit=5'
-      var url = 'https://data.hawaii.gov/resource/jexd-xbcg.json?$limit=5'
-      $.get( url, function( data ) {
-        console.log( "Load was performed." );
-        console.log("got data" + data);
-        console.log("got data" + JSON.stringify(data));
-      });
-      //https://data.hawaii.gov/Community/Campaign-Contributions-Received-By-Hawaii-State-an/jexd-xbcg
-    });
-  </script>
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+
 
   <body>
 
-    <h1>Candidate A received money from contituents A, B, and C</h1>
-    <p>para 1</p>
-    <p>para 2</p>
-    <p>para 3</p>
-    <p>para 4</p>
-    <p>para 5</p>
-    <p>para 6</p>
-    <p>para 7</p>
+    <!-- Show amount contributed to each candidate -->
+    <div id="content-div"></div>
+    <div id="container"></div>
+    <div id="p1"></div>
 
-    <h1>Candidate A spendt money on X, Y, and Z</h1>
+    <h1>Which candidate received the most money</h1>
+    And from whom?
+    <h1>Who donated the most money?</h1>
+    <h1>What did the candidate spend money on?</h1>
+    This should default to a candidate and allow a selector
 
   </body>
 </html>
