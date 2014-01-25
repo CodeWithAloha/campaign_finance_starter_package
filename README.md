@@ -1,7 +1,20 @@
-![Bar-chart Screenshot](https://raw.github.com/axelson/campaign_finance_starter_package/master/_jekyll/images/chart-screenshot.png "Bar-chart Screenshot")
+![Bar-chart Screenshot](_jekyll/images/chart-screenshot.png "Bar-chart Screenshot")
 
 # Intro
-This project is meant to help you hit the ground running with an html visualization of the hawaii campaign finance data. It was created for [Civic*Celerator 2013](http://civic.celerator.org/).
+This starter package is a single page HTML file that pulls in live data from data.hawaii.gov and displays it as a barchart using D3.js. The starter package was created for [Civic*Celerator 2013](http://civic.celerator.org/) but has applicability for any data.hawaii.gov spreadsheet data.
+
+[View Demo Online](http://axelson.github.io/campaign_finance_starter_package/)
+
+# Overview
+This starter package combines the following:
+* data.hawaii.gov campaign finance data
+  * Pulled in via Socrata SODA Rest API
+* D3.js
+  * For visualization of the data (currently with a simple bar chart)
+* jquery
+  * For general page manipulation
+
+You can either view the [demo](http://axelson.github.io/campaign_finance_starter_package/) online or view it locally by saving the [index.html](index.html) locally and opening it in your browser. If you save it locally making edits is easy. Just modify the file and refresh your browser.
 
 ## Details
 How to get the url for a data set from the data.hawaii.gov (Socrata) link:

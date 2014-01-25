@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log('page read');
   var urls = {
     senate_campaign_contributions: 'https://data.hawaii.gov/resource/jexd-xbcg.json'
     ,state_county_candidate_spending: 'https://data.hawaii.gov/resource/3maa-4fgr.json'
@@ -24,8 +23,8 @@ $(document).ready(function() {
   });
 });
 
+// Show data as table on the page
 function tabulate(data, columns) {
-  console.log('in tabulate');
   var table = d3.select("#table-container").append("table"),
     thead = table.append("thead"),
     tbody = table.append("tbody");
