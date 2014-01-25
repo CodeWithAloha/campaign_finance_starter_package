@@ -19,15 +19,10 @@ $(document).ready(function() {
     console.log('content div is ' + $('#content-div'));
     var table = tabulate(data, ['contributor_name', 'candidate_name', 'amount', "contributor_type", "street_address_1"]);
 
-    var myChart = simpleBarChart().width(200).height(50);
     var vals = [5,10,15,60,12,15,17];
     var days = ['M','Tu','W','Th','Fr','Sa','Su'];
     //var mydata = days.map(function(d,i){return {"value":vals[i],"day":days[i]};});
     var mydata = data.map(function(d,i){return {'value':data[i]['amount'],'day':data[i]['contributor_name']}})
-
-    d3.selectAll("#p1")
-          .datum(mydata)
-                .call(myChart);
 
     // Want to sum up all the Abe, Michael's
     //barChart(data);
