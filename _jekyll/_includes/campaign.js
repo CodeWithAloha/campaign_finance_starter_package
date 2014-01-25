@@ -4,30 +4,22 @@ $(document).ready(function() {
   var url = 'https://data.hawaii.gov/resource/jexd-xbcg.json?$limit=10'
   //var url = 'https://data.hawaii.gov/resource/3maa-4fgr.json'
   $.get( url, function( data ) {
-    console.log( "Load was performed." );
     console.log("got data" + JSON.stringify(data));
-    console.log('content div is ' + $('#content-div'));
     var table = tabulate(data, ['contributor_name', 'candidate_name', 'amount', "contributor_type", "street_address_1"]);
 
-    var vals = [5,10,15,60,12,15,17];
-    var days = ['M','Tu','W','Th','Fr','Sa','Su'];
-    //var mydata = days.map(function(d,i){return {"value":vals[i],"day":days[i]};});
-    var mydata = data.map(function(d,i){return {'value':data[i]['amount'],'day':data[i]['contributor_name']}})
+    var formatted_data = data.map(function(d,i){return {'value':data[i]['amount'],'day':data[i]['contributor_name']}})
 
-    // Want to sum up all the Abe, Michael's
-    //barChart(data);
-
+    // Sum donations by contributor
     var nest = d3.nest().
       key(function(d) { return d.contributor_name; }).
       rollup(function(leaves)
              { return {contributor_name:leaves[0].contributor_name, amount:d3.sum(leaves, function(d) {return parseFloat(d.amount);})}; }).entries(data);
 
-    // TODO: format nicer rather formatting in the bar chart
     var mapData = nest.map(function(d) { console.log(JSON.stringify(d)); return d.values; });
-    console.log('map data is ' + JSON.stringify(mapData));
     barChart(mapData);
+    // Make data accessible in the console
     window.data = data;
-    window.mydata = mydata;
+    window.formatted_data = formatted_data;
   });
   //https://data.hawaii.gov/Community/Campaign-Contributions-Received-By-Hawaii-State-an/jexd-xbcg
 });
@@ -65,31 +57,3 @@ function tabulate(data, columns) {
 
   return table;
 }
-
-// create some people
-var people = [
-  {name: "Jill", age: 30},
-  {name: "Bob", age: 32},
-  {name: "George", age: 29},
-  {name: "Sally", age: 31}
-];
-
-console.log('created some people');
-
-// render the table
-$(document).ready(function() {
-  return;
-  var peopleTable = tabulate(people, ["name", "age"]);
-
-  // uppercase the column headers
-  peopleTable.selectAll("thead th")
-    .text(function(column) {
-      return column.charAt(0).toUpperCase() + column.substr(1);
-    });
-
-  // sort by age
-  peopleTable.selectAll("tbody tr")
-    .sort(function(a, b) {
-      return d3.descending(a.age, b.age);
-    });
-});
