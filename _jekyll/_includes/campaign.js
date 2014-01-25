@@ -12,7 +12,7 @@ $(document).ready(function() {
   //var url = 'http://soda.demo.socrata.com/resource/earthquakes.json?$limit=5&$order=datetime DESC'
   //var url = 'https://data.hawaii.gov/Community/Campaign-Contributions-Received-By-Hawaii-State-an/jexd-xbcg.json?$limit=5'
   var url = 'https://data.hawaii.gov/resource/jexd-xbcg.json?$limit=10'
-  var url = 'https://data.hawaii.gov/resource/3maa-4fgr.json'
+  //var url = 'https://data.hawaii.gov/resource/3maa-4fgr.json'
   $.get( url, function( data ) {
     console.log( "Load was performed." );
     console.log("got data" + JSON.stringify(data));
