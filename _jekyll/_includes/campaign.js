@@ -1,15 +1,5 @@
 $(document).ready(function() {
   console.log('page read');
-  d3.selectAll("p").style('color', 'green');
-  d3.selectAll("p")
-    .data([4, 8, 15, 16, 23, 42])
-    .style("font-size", function(d) { return d + "px"; });
-  d3.select("body").selectAll("p")
-    .data([4, 8, 15, 16, 23, 42])
-    .enter().append("p")
-    .text(function(d) { return "I’m number " + d + "!"; });
-  //http://soda.demo.socrata.com/resource/earthquakes.json?$limit=5&$order=datetime DESC
-  //var url = 'http://soda.demo.socrata.com/resource/earthquakes.json?$limit=5&$order=datetime DESC'
   //var url = 'https://data.hawaii.gov/Community/Campaign-Contributions-Received-By-Hawaii-State-an/jexd-xbcg.json?$limit=5'
   var url = 'https://data.hawaii.gov/resource/jexd-xbcg.json?$limit=10'
   //var url = 'https://data.hawaii.gov/resource/3maa-4fgr.json'
@@ -44,7 +34,7 @@ $(document).ready(function() {
 
 function tabulate(data, columns) {
   console.log('in tabulate');
-  var table = d3.select("#container").append("table"),
+  var table = d3.select("#table-container").append("table"),
     thead = table.append("thead"),
     tbody = table.append("tbody");
 
