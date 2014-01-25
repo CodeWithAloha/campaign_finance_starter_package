@@ -1,9 +1,10 @@
 $(document).ready(function() {
   console.log('page read');
-  //var url = 'https://data.hawaii.gov/Community/Campaign-Contributions-Received-By-Hawaii-State-an/jexd-xbcg.json?$limit=5'
-  var url = 'https://data.hawaii.gov/resource/jexd-xbcg.json?$limit=10'
-  //var url = 'https://data.hawaii.gov/resource/3maa-4fgr.json'
-  $.get( url, function( data ) {
+  var urls = {
+    senate_campaign_contributions: 'https://data.hawaii.gov/resource/jexd-xbcg.json'
+    ,state_county_candidate_spending: 'https://data.hawaii.gov/resource/3maa-4fgr.json'
+  }
+  $.get( urls.senate_campaign_contributions + '?$limit=11', function( data ) {
     console.log("got data" + JSON.stringify(data));
     var table = tabulate(data, ['contributor_name', 'candidate_name', 'amount', "contributor_type", "street_address_1"]);
 
@@ -21,7 +22,6 @@ $(document).ready(function() {
     window.data = data;
     window.formatted_data = formatted_data;
   });
-  //https://data.hawaii.gov/Community/Campaign-Contributions-Received-By-Hawaii-State-an/jexd-xbcg
 });
 
 function tabulate(data, columns) {
