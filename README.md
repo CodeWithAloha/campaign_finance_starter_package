@@ -27,3 +27,8 @@ Then add it to this url `https://data.hawaii.gov/resource/<unique-id>.json` (add
 Add info about what you can filter on
 Reference: http://dev.socrata.com/consumers/getting-started
 
+# Development/Contributing
+
+The [index.html](index.html) page is actually generated using [Jekyll](http://jekyllrb.com/) to make editing the separate javascript files easier.
+
+If you'd like to contribute to the starter package, simply fork the repo, push your commits, and submit your pull request.
