@@ -3,7 +3,7 @@
 # Intro
 This starter package is a single page HTML file that pulls in live data from data.hawaii.gov and displays it as a barchart using D3.js. The starter package was created for [Civic*Celerator 2013](http://civic.celerator.org/) but has applicability for any data.hawaii.gov spreadsheet data.
 
-[View Demo Online](http://axelson.github.io/campaign_finance_starter_package/)
+[View Demo Online](http://codeforhawaii.github.io/campaign_finance_starter_package/)
 
 # Overview
 This starter package combines the following:
@@ -14,7 +14,7 @@ This starter package combines the following:
 * jquery
   * For general page manipulation
 
-You can either view the [demo](http://axelson.github.io/campaign_finance_starter_package/) online or view it locally by saving the [index.html](index.html) locally and opening it in your browser. If you save it locally making edits is easy. Just modify the file and refresh your browser.
+You can either view the [demo](http://codeforhawaii.github.io/campaign_finance_starter_package/) online or view it locally by saving the [index.html](index.html) locally and opening it in your browser. If you save it locally making edits is easy. Just modify the file and refresh your browser.
 
 ## Details
 How to get the url for a data set from the data.hawaii.gov (Socrata) link:
